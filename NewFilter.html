@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<title> Using Angular JS Directives and Data Binding </title>
+</head>
+
+<body>
+	<div class="container"
+	     data-ng-init ="names = ['Dave', 'Napur', 'Heedy' , 'Shriva']" >
+
+	     <h3> Looping with ng-repeat Directive </h3>
+	     <ul>
+	     	<li data-ng-repeat="name in names"> {{name}} </li>
+	     </ul>
+	 </div>
+
+
+	 <div class="guestin"
+	 	data-ng-init="customers = [{name :'Susan Bhattarai',
+	 								city: 'Phoenix'},
+	 								{ name: 'Regan Bhatta',
+	 								city : 'Chitwan'},
+	 								{name : 'Sachin Sapkota',
+	 								city: 'Kathmandu'},	
+	 								{name: 'Surij Kesari',
+	 								city : 'Priyanka Chowk'},
+	 								{name : 'Abhisek Sapkota',
+	 								city : 'Pulchowk'},
+	 								{name: 'Surij Kesari',
+	 								city : 'Prithivi Chowk'},
+	 									{name: 'Surij Kesari',
+	 								city : 'Priyanka Chowk'}
+
+	 									]">
+	 </div>
+	 <div class ="firstfilter" >
+	 <h3> Using filters </h3>
+	 <input type="text" data-ng-model="nameText" />
+	 <ul>
+	 	<li data-ng-repeat="cust  in customers | filter: nameText | orderBy:'name'">
+	 		{{cust.name }} - {{cust.city}} 
+	 	</li>
+	 </ul>
+	</div>
+	<h3> Next Filter </h3>
+	<div class="secondfilter" >
+	 <input type="text" data-ng-model="cityText" />
+	 <ul>
+	 	<li data-ng-repeat="custi in customers | filter: cityText | orderBy:'city'">
+	 		{{custi.name}} - {{custi.city}}
+	 	</li>
+	 </ul>
+ 	 </div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js"> </script>
+</body>
+</html>
