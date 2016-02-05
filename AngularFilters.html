@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<title> Using Angular JS Directives and Data Binding </title>
+</head>
+
+<body>
+	<div class="container" 
+	     data-ng-init ="names = ['Dave', 'Napur', 'Heedy' , 'Shriva']" >
+
+	     <h3> Looping with ng-repeat Directive </h3>
+	     <ul>
+	     	<li data-ng-repeat="name in names"> {{name}} </li>
+	     </ul>
+	 </div>
+
+
+	 <div class="guestin"
+	 	data-ng-init="customers = [{name :'Susan Bhattarai',
+	 								city: 'Phoenix'},
+	 								{ name: 'Regan Bhatta',
+	 								city : 'Chitwan'},
+	 								{name : 'Sachin Sapkota',
+	 								city: 'Kathmandu'},
+	 								{name : 'Abhisek Sapkota',
+	 								city : 'Pulchowk'}
+	 									]">
+
+	 <h3> Using filters </h3>
+	 <input type="text" data-ng-model="nameText" />
+	 <ul>
+	 	<li data-ng-repeat="cust in customers | filter: nameText | orderBy: 'name'">
+	 		{{cust.name }} - {{cust.city}} 
+	 	</li>
+	 </div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js"> </script>
+</body>
+</html>
